@@ -1,3 +1,5 @@
 .env*
 redis/*
 !redis/.gitkeep
+apinto/*
+!apinto/.gitignore
