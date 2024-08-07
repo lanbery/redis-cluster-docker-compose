@@ -24,6 +24,17 @@ bash bin/redis-build.sh -p6379 -s6 init
 
 ```
 
+### How get the docker IP
+
+```bash
+# linux
+ip route
+
+# window macOs find the wsl or the vEthernet
+ipconfig 
+
+```
+
 **notice**
 the script only pass run in WSL or Linux enviroment,don't use in window gitbash.
 in window docker the --volume path will failure with root dir,some like '/xxx/redis/conf/redis.conf;C'
