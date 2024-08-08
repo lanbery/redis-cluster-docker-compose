@@ -174,7 +174,6 @@ function export_redis_addr(){
   
   export REDIS_ADDR=$redis_addr
 
-echo -ne "OOOO ${REDIS_ADDR}"
   # rm
 #   rm -rf $app_base/temp
 
@@ -315,7 +314,9 @@ prepare_app_data_dir
 export_redis_addr
 # EC_CMD
 if [[ $EC_CMD =~ ^(up|u)$ ]];then 
-  show_help
+  check_env_args
+  write_readme_md
+  up_apinto_dashboard
   exit 0
 elif [[ $EC_CMD =~ ^(down|d|remove|rmi)$ ]];then
   show_help
