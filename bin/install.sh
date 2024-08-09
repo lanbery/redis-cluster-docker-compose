@@ -247,7 +247,8 @@ write_wiki() {
     if [ ! -f "$wiki_filename" ];then
         touch "$wiki_filename"
     fi
-
+   
+    visit_url=$(ip addr | grep 'inet ' | awk '{print $2}'| tail -n 1 | grep -oP '\d+\.\d+\.\d+\.\d+')
     #document head
     echo -ne "# ${app_name} \n\n- version: ${version} \n- App install at: ${app_run_base}\n" > $wiki_filename
 
@@ -259,6 +260,7 @@ cat << EOF >> $wiki_filename
 
 > apserver install dir: ${app_run_base}/apserver_v${apserver_version}
 
+- Vistit url: http://$visit_url:${APSERVER_PORT}
 - apserver start,stop or restart
 
 \`\`\`bash
